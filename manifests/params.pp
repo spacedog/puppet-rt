@@ -28,6 +28,7 @@ class rt::params {
   $config_dir        = '/etc/rt'
   $config_site       = "${config_dir}/RT_SiteConfig.pm"
   $config_d          = "${config_dir}/RT_SiteConfig.d"
+  $config_content    = undef
 
   if $::osfamily == 'RedHat' {
     $defaultsiteconfig = {

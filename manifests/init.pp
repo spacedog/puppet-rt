@@ -56,6 +56,11 @@
 #
 #     Type: String
 #     Default: /etc/rt/RT_SiteConfig.pm
+#  [*config_source*]
+#     Define content for SiteConfig file
+#
+#      Type: String
+#      Default: undef
 #
 #  [*user*]
 #     The owner of config_dir directory
@@ -104,6 +109,7 @@ class rt (
   $config_dir        = $rt::params::config_dir,
   $config_d          = $rt::params::config_d,
   $config_site       = $rt::params::config_site,
+  $config_content    = $rt::params::config_content,
   $user              = $rt::params::user,
   $group             = $rt::params::group,
   $web_user          = $rt::params::web_user,
@@ -150,7 +156,8 @@ class rt (
     $user,
     $group,
     $web_user,
-    $web_group
+    $web_group,
+    $config_content
   )
 
   anchor {'rt::begin':}
@@ -167,6 +174,7 @@ class rt (
     config_dir        => $config_dir,
     config_d          => $config_d,
     config_site       => $config_site,
+    config_content    => $config_content,
     user              => $user,
     group             => $group,
     web_user          => $web_user,

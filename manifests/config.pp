@@ -84,6 +84,7 @@ class rt::config (
   $config_dir,
   $config_site,
   $config_d,
+  $config_content,
   $user,
   $group,
   $web_user,
@@ -147,12 +148,18 @@ class rt::config (
     }
   }
 
+  if $config_content {
+    $_content = inline_template($config_content)
+  } else {
+    $_content = template("${module_name}/RT_SiteConfig.pm.erb")
+  }
+
   file { $config_site:
     ensure  => $ensure,
     mode    => '0640',
     owner   => $web_user,
     group   => $web_group,
-    content => template("${module_name}/RT_SiteConfig.pm.erb"),
+    content => $_content,
   }
 
 
