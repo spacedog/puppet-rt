@@ -1,5 +1,8 @@
 *.swp
 .ruby-version
 .ruby-gemset
+/.bundle
+/spec/fixtures/manifests
+/spec/fixtures/modules
 Gemfile.lock
 pkg
