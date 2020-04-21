@@ -33,7 +33,7 @@ class rt::params {
   if $::osfamily == 'RedHat' {
     $defaultsiteconfig = {
       'rtname'  => 'example.com',
-      'WebPath' => '/rt'
+      'WebPath' => '/rt',
     }
   }
 

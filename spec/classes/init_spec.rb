@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'rt' do
-  let(:facts) {
+  let(:facts) do
     {
       :fqdn            => 'test.example.com',
       :hostname        => 'test',
@@ -9,7 +9,7 @@ describe 'rt' do
       :operatingsystem => 'CentOS',
       :osfamily        => 'RedHat'
     }
-  }
+  end
   context 'with defaults for all parameters' do
     it { should contain_class('rt') }
     it { should contain_anchor('rt::begin') }
@@ -17,5 +17,4 @@ describe 'rt' do
     it { should contain_class('rt::config').that_requires('Class[rt::install]') }
     it { should contain_anchor('rt::end').that_requires('Class[rt::config]') }
   end
-
 end

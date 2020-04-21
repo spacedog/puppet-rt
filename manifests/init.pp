@@ -121,7 +121,7 @@ class rt (
   # Parameters validation
   validate_re($ensure, [
     '^present',
-    '^absent'
+    '^absent',
   ])
   if is_array($package) {
     validate_array($package)
@@ -180,12 +180,12 @@ class rt (
     web_user          => $web_user,
     web_group         => $web_group,
     siteconfig        => $siteconfig,
-    defaultsiteconfig => $defaultsiteconfig
+    defaultsiteconfig => $defaultsiteconfig,
   }
 
   # Order and dependencies
-  Anchor['rt::begin'] ->
-  Class['rt::install'] ->
-  Class['rt::config'] ->
-  Anchor['rt::end']
+  Anchor['rt::begin']
+  -> Class['rt::install']
+  -> Class['rt::config']
+  -> Anchor['rt::end']
 }

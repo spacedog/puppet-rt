@@ -42,7 +42,7 @@ class rt::install (
 ) {
   validate_re($ensure, [
     '^present',
-    '^absent'
+    '^absent',
   ])
   if is_array($package) {
     validate_array($package)
@@ -64,6 +64,6 @@ class rt::install (
   }
 
   package {$package:
-    ensure => $_package_ensure
+    ensure => $_package_ensure,
   }
 }

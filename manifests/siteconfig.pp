@@ -29,11 +29,11 @@ define rt::siteconfig (
   $ensure = 'present',
 ) {
 
-  include ::rt::params
+  include rt::params
   # Valitaion
   validate_re($ensure, [
     '^absent$',
-    '^present$'
+    '^present$',
   ])
 
   if $value {

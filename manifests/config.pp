@@ -95,7 +95,7 @@ class rt::config (
   # Validation
   validate_re($ensure, [
     '^present',
-    '^absent'
+    '^absent',
   ])
   validate_absolute_path(
     $config_dir,
