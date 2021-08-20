@@ -25,13 +25,10 @@ group :development do
   gem "puppet-module-win-default-r#{minor_version}", '~> 1.0',   require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "puppet-module-win-dev-r#{minor_version}", '~> 1.0',       require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "rubocop-performance",                                     require: false if Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.5.0')
-  gem "puppet-module-posix-dev-r#{minor_version}", '~> 0.5',     require: false, platforms: [:ruby] if Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
-  gem "puppet-module-posix-default-r#{minor_version}", '~> 0.5', require: false, platforms: [:ruby] if Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
 end
 group :system_tests do
   gem "puppet-module-posix-system-r#{minor_version}", '~> 1.0', require: false, platforms: [:ruby]
   gem "puppet-module-win-system-r#{minor_version}", '~> 1.0',   require: false, platforms: [:mswin, :mingw, :x64_mingw]
-  gem "puppet-module-posix-system-r#{minor_version}", '~> 0.5', require: false, platforms: [:ruby] if Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
 end
 
 puppet_version = ENV['PUPPET_GEM_VERSION']

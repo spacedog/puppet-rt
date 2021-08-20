@@ -12,31 +12,10 @@ CHANGELOG.md:
   branches:
     - '---main'
     - master
-  extras:
-    -
-      env: PUPPET_GEM_VERSION="~> 4.0" CHECK=parallel_spec
-      rvm: 2.1.9
-      stage: spec
 Gemfile:
   required:
-    ':development':
+    ':development': 
         # Install rubocop-perfomance
-        - gem: rubocop-performance
-          condition: "Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.5.0')"
-        # Install puppet-module-posix-* according ruby version
-        - gem: puppet-module-posix-dev-r#{minor_version}
-          version: ~> 0.5
-          condition:  Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
-          platforms:
-          - ruby
-        - gem: puppet-module-posix-default-r#{minor_version}
-          version: ~> 0.5
-          condition:  Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
-          platforms:
-          - ruby
-    ':system_tests':
-        - gem: puppet-module-posix-system-r#{minor_version}
-          version: ~> 0.5
-          condition:  Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
-          platforms:
-          - ruby
+      - gem: rubocop-performance
+        condition: "Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.5.0')"
+        
