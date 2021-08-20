@@ -43,7 +43,7 @@ jobs:
       stage: spec
 branches:
   only:
-    - master
     - /^v\d/
+    - master
 notifications:
   email: false
