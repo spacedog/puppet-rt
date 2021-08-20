@@ -20,5 +20,23 @@ CHANGELOG.md:
 Gemfile:
   required:
     ':development':
+        # Install rubocop-perfomance
         - gem: rubocop-performance
           condition: "Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.5.0')"
+        # Install puppet-module-posix-* according ruby version
+        - gem: puppet-module-posix-dev-r#{minor_version}
+          version: ~> 0.5
+          condition:  Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
+          platforms:
+          - ruby
+        - gem: puppet-module-posix-default-r#{minor_version}
+          version: ~> 0.5
+          condition:  Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
+          platforms:
+          - ruby
+    ':system_tests':
+        - gem: puppet-module-posix-system-r#{minor_version}
+          version: ~> 0.5
+          condition:  Gem::Requirement.create('~> 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
+          platforms:
+          - ruby
