@@ -1,4 +1,4 @@
-# Puppet-RT [![Build Status](https://travis-ci.com/spacedog/puppet-rt.svg)](https://travis-ci.com/spacedog/puppet-rt)
+# Puppet-RT [![Build Status](https://app.travis-ci.com/spacedog/puppet-rt.svg?branch=master)](https://app.travis-ci.com/spacedog/puppet-rt)
 
 #### Table of Contents
 
